@@ -6,8 +6,6 @@ import database-info as db
 
 app = Flask(__name__)
 
-player = input("Please enter your name here ---> ").lower
-
 @app.route('/', methods= ['GET'])
 def index():
     
