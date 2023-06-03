@@ -6,14 +6,14 @@ database = './static/data/player-info.db'
 def delete_data(rowid):
     conn = sqlite3.connect(database)
     curs = conn.cursor()
-    curs.execute("DELETE FROM save_data WHERE rowid = ?", (Name, Room, Items))
+    curs.execute("DELETE FROM save_data WHERE rowid = ?", (rowid,))
     conn.commit()
     conn.close()
 
-def update_data(Name, Room, Items):
+def update_data(Name, Room, Items, rowid):
     conn = sqlite3.connect(database)
     curs = conn.cursor()
-    curs.execute("UPDATE", (Name, Room, Items))
+    curs.execute("UPDATE save_data Name = ?, Room = ?, Items = ?, WHERE rowid = ?", (Name, Room, Items, rowid))
     conn.commit()
     conn.close()
 
@@ -35,7 +35,7 @@ def get_all_data():
             'Name': row[1],
             'Room': row[2],
             'Items': row[3],
-            'rowid' : row[0]
+            'rowid': row[0]
 
         }
         post.append(post)
