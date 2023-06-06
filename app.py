@@ -23,7 +23,7 @@ def start_game():
     # Set player name & gender
     # Start new game
     game = Game(name, gender)
-    # redirect to play where game begins
+    
     pass
 
 @app.route('/play')
@@ -40,7 +40,7 @@ def right():
 
 
 @app.route('/left', methods= ['GET'])
-def left():
+def index():
     pass
 
 
