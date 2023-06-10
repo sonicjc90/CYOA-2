@@ -1,0 +1,22 @@
+body {
+    background-image: url("https://t4.ftcdn.net/jpg/02/59/16/15/360_F_259161577_CESOycx2KteeRGI7VUUBLDjz76x6MILO.jpg");
+    text-align: center;
+
+}
+
+h2 {
+    color: aliceblue;
+    font-size: 7ch;
+    text-align: center;
+
+}
+
+.dialog {
+    width: 50%;
+    margin: auto;
+}
+
+h3 {
+    color: aliceblue;
+    font-size: small;
+}
