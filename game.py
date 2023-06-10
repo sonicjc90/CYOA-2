@@ -55,13 +55,13 @@ class Game:
         self.location = self.location.map['down']
 
     def set_maps(self):
-        self.ER.add_map(self.CF, self.SP, None, self.AR)
-        self.CF.add_map(self.CF, self.SP, None, self.AR)
-        self.SP.add_map(self.CF, self.SP, None, self.AR)
-        self.CC.add_map(self.CF, self.SP, None, self.AR)
-        self.AR.add_map(self.CF, self.SP, None, self.AR)
-        self.MB.add_map(self.CF, self.SP, None, self.AR)
-        self.GA.add_map(self.CF, self.SP, None, self.AR)
+        self.ER.add_map(None, None, self.CC, None)
+        self.CF.add_map(None, None, None, self.GA)
+        self.SP.add_map(None, self.GA, None, None)
+        self.CC.add_map(self.ER, self.AR, self.GA, self.MB)
+        self.AR.add_map(None, None, None, self.CC)
+        self.MB.add_map(None, self.CC, None, None)
+        self.GA.add_map(self.CC, self.CF, None, self.SP)
 
 
 
