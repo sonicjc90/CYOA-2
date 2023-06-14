@@ -7,11 +7,10 @@ from game import Game, Room
 
 app = Flask(__name__)
 game = None
-username = input('Type in Name Here: ')
-user_gender = input('Choose your Gender: ')
 
 @app.route('/', methods= ['GET'])
 def index():
+    players = db.get_all_data()
 
     return render_template('homepage.html') 
 
@@ -23,7 +22,7 @@ def start_game():
     # Set player name & gender
     # Start new game
     game = Game(name, gender)
-    return redirect(url_for('play'))
+    return redirect(url_for('/play'))
 
     
 
@@ -38,27 +37,27 @@ def play():
 @app.route('/right', methods= ['GET'])
 def right():
     game.go_right()
-    return redirect(url_for('play'))
+    return redirect(url_for('/play'))
 
 
 @app.route('/left', methods= ['GET'])
 def left():
     game.go_left()
-    return redirect(url_for('play'))
+    return redirect(url_for('/play'))
     
 
 
 @app.route('/up', methods= ['GET'])
 def up():
     game.go_up()
-    return redirect(url_for('play'))
+    return redirect(url_for('/play'))
     
 
 
 @app.route('/down', methods= ['GET'])
 def down():
     game.go_down()
-    return redirect(url_for('play'))
+    return redirect(url_for('/play'))
     
 
     
