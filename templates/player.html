@@ -12,13 +12,15 @@
 <body>
   <div class="dialoge">
     <h2>Cosmic Endevors</h2>
-    <form action="new">
-      <button class = "button" type="submit">
-          NEW GAME!
-      </button>
-      <form action="load">
-        <button class = "button" type="submit">
-            LOAD GAME!
-        </button>
+    <div class="player"></div>
+        <form action= "/start-game">
+            <input type = "text" value="">
+            <input type="radio" id="male" name="male gender" value="Male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="female gender" value="Female">
+            <label for="female">Female</label><br>
+            <input type="radio" id="other" name="gender" value="Other:">
+            <label for="gender">Other:</label><br>
+        </form>
   </div>
 </body>
