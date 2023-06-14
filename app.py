@@ -2,18 +2,18 @@ from unicodedata import name
 from flask import Flask, request, render_template, redirect, url_for
 import sqlite3
 import requests
-import database-info as db
-from game import Game
+import database_info as db
+from game import Game, Room
 
 app = Flask(__name__)
 game = None
+username = input('Type in Name Here: ')
+user_gender = input('Choose your Gender: ')
 
 @app.route('/', methods= ['GET'])
 def index():
-    # Welcome user
-    # Enter name form 
-    # Enter gender
-    return render_template('index.html') 
+
+    return render_template('homepage.html') 
 
 @app.route('/start-game', methods=['POST'])
 def start_game():
@@ -23,35 +23,43 @@ def start_game():
     # Set player name & gender
     # Start new game
     game = Game(name, gender)
+    return redirect(url_for('play'))
+
     
-    pass
 
 @app.route('/play')
 def play():
-    # show current game location
-    render_template('game.html', game.location )
+    
+    return render_template('room.html', room = game.location )
+
     
 
 
 @app.route('/right', methods= ['GET'])
 def right():
     game.go_right()
-    render_template('game.html', game.location )
+    return redirect(url_for('play'))
 
 
 @app.route('/left', methods= ['GET'])
-def index():
-    pass
+def left():
+    game.go_left()
+    return redirect(url_for('play'))
+    
 
 
 @app.route('/up', methods= ['GET'])
-def index():
-    pass
+def up():
+    game.go_up()
+    return redirect(url_for('play'))
+    
 
 
 @app.route('/down', methods= ['GET'])
-def index():
-    pass
+def down():
+    game.go_down()
+    return redirect(url_for('play'))
+    
 
     
 if __name__ == '__main__':
