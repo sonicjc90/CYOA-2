@@ -21,13 +21,21 @@ class Room:
 
 class Game:
 
-    ER = Room("Engine Room", "", "")
-    CF = Room("Cafeteria", "", "")
-    SP = Room("Spawn Point", "", "")
-    CC = Room("Control Center", "", "")
-    AR = Room("Airlock", "", "")
-    MB = Room("Medbay", "", "")
-    GA = Room("General Area", "", "")
+    ER = Room("Engine Room", "", "")  
+    # Optional room to enter. Only there for immersiveness.
+    CF = Room("Cafeteria", "", "") 
+    #First room player should be allowed to enter after spawn pt. 
+    #Objs:Pass to airlock(cannot enter airlock w/o pass in inventory)
+    SP = Room("Spawn Point", "", "") 
+    #Player is prompted with a backstory as to why they have randomly woken up here (Could be bedroom instead of spawn pt.)
+    CC = Room("Control Center", "", "") #Last place player should enter, also cannot enter without pass for airlock
+    AR = Room("Airlock", "", "") 
+    #Player will find a key and be prompted to catch it in a short time framed sequence(Sequence starts once audio cue goes off)
+    #If the player fails they die
+    MB = Room("Medbay", "", "") 
+    #Possible threat in this room...If player doesnt have a weapon when dealing w a threat, there is a suicide option
+    GA = Room("General Area", "", "") 
+    #Weapons in this room. Should be the first room players walks into when leaving cafeteria.
     LOCATIONS = [SP, ER, CF, CC, AR, MB, GA]
     
 
