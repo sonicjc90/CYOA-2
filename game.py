@@ -1,4 +1,4 @@
-player = input("Please enter your name here ---> ").lower
+# player = input("Please enter your name here ---> ").lower
 
 class Room:
     def __init__ (self, name, tools, prompt, background):

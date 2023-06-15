@@ -10,7 +10,7 @@ game = None
 
 @app.route('/', methods= ['GET'])
 def index():
-    players = db.get_all_data()
+    # players = db.get_all_data()
 
     return render_template('homepage.html') 
 
@@ -24,7 +24,12 @@ def start_game():
     game = Game(name, gender)
     return redirect(url_for('/play'))
 
+@app.route('/player')
+def player():
+
     
+
+    return render_template('player.html')
 
 @app.route('/play')
 def play():
