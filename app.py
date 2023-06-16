@@ -12,28 +12,31 @@ game = None
 def index():
     # players = db.get_all_data()
 
-    return render_template('homepage.html') 
+    room = game.location
+    game.set_maps(room)
 
-@app.route('/start-game', methods=['POST'])
-def start_game():
-    # Get form input
-    name = request.form['username']
-    gender = request.form['gender']
-    # db.add_data(name, gender, None)
+    return render_template('room.html', room = room) 
+
+# @app.route('/start-game', methods=['POST'])
+# def start_game():
+#     # Get form input
+#     name = request.form['username']
+#     gender = request.form['gender']
+#     db.add_data(name, gender, None, None)
     
-    return redirect(url_for('/play'))
+#     return redirect(url_for('/play'))
 
-@app.route('/player')
-def player():
+# @app.route('/player')
+# def player():
 
-    return render_template('player.html')
+#     return render_template('player.html')
 
-@app.route('/play')
-def play():
-    rooms = game.location
-    game.set_maps(rooms)
+# @app.route('/play')
+# def play():
+#     room = game.location
+#     game.set_maps(room)
 
-    return render_template('room.html', rooms = rooms )
+#     return render_template('room.html', room = room )
 
 
 @app.route('/right', methods= ['GET'])
