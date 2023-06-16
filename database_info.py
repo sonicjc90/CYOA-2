@@ -10,18 +10,18 @@ def delete_data(rowid):
     conn.commit()
     conn.close()
 
-def update_data(Name, Room, Items, rowid):
+def update_data(Name, Gender, Room, Items, rowid):
     conn = sqlite3.connect(database)
     curs = conn.cursor()
-    curs.execute("UPDATE save_data Name = ?, Room = ?, Items = ?, WHERE rowid = ?", (Name, Room, Items, rowid))
+    curs.execute("UPDATE save_data Name = ?, Gender = ?, Rooms = ?, Items = ? WHERE rowid = ?", (Name, Gender, Room, Items, rowid))
     conn.commit()
     conn.close()
 
 
-def add_data(Name, Room, Items):
+def add_data(Name, Gender, Room, Items):
     conn = sqlite3.connect(database)
     curs = conn.cursor()
-    curs.execute("INSERT INTO save_data (Name, Room, Items) VALUES (?, ?, ?)", (Name, Room, Items))
+    curs.execute("INSERT INTO save_data (Name, Gender, Room, Items) VALUES (?, ?, ?, ?)", (Name, Gender, Room, Items))
     conn.commit()
     conn.close()
 
@@ -33,8 +33,9 @@ def get_all_data():
     for row in result: 
         post = {
             'Name': row[1],
-            'Room': row[2],
-            'Items': row[3],
+            'Gender': row[2],
+            'Room': row[3],
+            'Items': row[4],
             'rowid': row[0]
 
         }
