@@ -17,26 +17,23 @@ def index():
 @app.route('/start-game', methods=['POST'])
 def start_game():
     # Get form input
-    name = ''
-    gender = ''
-    # Set player name & gender
-    # Start new game
-    game = Game(name, gender)
+    name = request.form['username']
+    gender = request.form['gender']
+    # db.add_data(name, gender, None)
+    
     return redirect(url_for('/play'))
 
 @app.route('/player')
 def player():
 
-    
-
     return render_template('player.html')
 
 @app.route('/play')
 def play():
-    
-    return render_template('room.html', room = game.location )
+    rooms = game.location
+    game.set_maps(rooms)
 
-    
+    return render_template('room.html', rooms = rooms )
 
 
 @app.route('/right', methods= ['GET'])
@@ -54,7 +51,7 @@ def left():
 
 @app.route('/up', methods= ['GET'])
 def up():
-    game.go_up()
+    game.go_top()
     return redirect(url_for('/play'))
     
 
