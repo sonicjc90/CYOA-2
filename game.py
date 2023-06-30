@@ -80,3 +80,6 @@ room_dir =  {
     "bottom1" : "Spawn Point",
     "bottom2" : "Engine Room",
 }
+
+
+# You wake up in a ship, not sure how you got there. Soon, you remember that you were looking for a new planet to explore, and an alien got into the ship. The alien had broken the engine and scattered the pieces for it around, causing the ship to be stuck in space and unable to return down to earth. The rest of your crewmembers were killed, and now you must find all the missing pieces of the engine to make your way back down to earth. There are multiple rooms in the ship that have each piece of the engine, so you must find them and return back to the engine before time runs out.

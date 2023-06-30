@@ -13,7 +13,7 @@
   <div class="dialoge">
     <h2>Cosmic Endevors</h2>
     <div class="player"></div>
-        <form action= "/start-game" method = "POST">
+        <form action= "/play" method = "POST">
             <input type = "text" value="" name = "username" placeholder="Username">
             <input type="radio" id="male" name="gender" value="Male">
             <label for="male">Male</label><br>
@@ -21,7 +21,8 @@
             <label for="female">Female</label><br>
             <input type="radio" id="other" name="gender" value="Other:">
             <label for="gender">Other:</label><br>
-            <button class = "name-button" type = "submit">Submit</button>
+            <a href="/play"><input type="submit" name="submit" value="Submit"> </a>
+            </div>
         </form>
   </div>
 </body>
