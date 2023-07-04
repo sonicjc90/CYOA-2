@@ -5,10 +5,11 @@ class Room:
         self.name = name 
         self.tools = tools
         self.prompt = prompt
+        self.background = background
 
         self.map = {}
         # self.items 
-        self.background = background
+       
 
     def add_map(self, top, right, down, left):
         self.map['top'] = top
