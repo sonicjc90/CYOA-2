@@ -4,10 +4,10 @@ from flask import Flask, request, render_template, redirect, url_for
 import sqlite3
 import requests
 import database_info as db
-from game import Game, Room
+from game import Game
 
 app = Flask(__name__)
-game = None
+game = Game()
 
 @app.route('/', methods= ['GET'])
 def index():
