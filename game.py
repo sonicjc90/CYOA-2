@@ -41,19 +41,23 @@ class Game:
 
     def go_right(self):
         #use current location to set the right location
-        self.location = self.location.map['right']
+        if self.location.map['right']:
+            self.location = self.location.map['right']
 
     def go_left(self):
         #use current location to set the right location
-        self.location = self.location.map['left']
+        if self.location.map['left']:
+            self.location = self.location.map['left']
 
     def go_top(self):
         #use current location to set the right location
-        self.location = self.location.map['top']
+        if self.location.map['top']:
+            self.location = self.location.map['top']
 
     def go_down(self):
         #use current location to set the right location
-        self.location = self.location.map['down']
+        if self.location.map['down']:
+            self.location = self.location.map['down']
 
     def set_maps(self):
         self.ER.add_map(None, None, self.CC, None)

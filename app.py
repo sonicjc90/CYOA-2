@@ -7,7 +7,9 @@ import database_info as db
 from game import Game
 
 app = Flask(__name__)
-game = Game()
+game = Game(name, None)
+
+
 
 @app.route('/', methods= ['GET'])
 def index():
@@ -20,7 +22,8 @@ def start_game():
     # Get form input
     name = request.form['username']
     gender = request.form['gender']
-    # db.add_data(name, gender, None)
+    game.player_name = name
+    game.player_gender = gender
     
     return redirect(url_for('/play'))
 
@@ -32,33 +35,34 @@ def player():
 @app.route('/play', methods = ['GET', 'POST'])
 def play():
     
-    return render_template('room.html')
+    game.location = game.SP
+    return render_template('room.html', game = game)
 
 
 @app.route('/right', methods= ['GET'])
 def right():
     game.go_right()
-    return redirect(url_for('/play'))
+    return redirect(url_for('play'))
 
 
 @app.route('/left', methods= ['GET'])
 def left():
     game.go_left()
-    return redirect(url_for('/play'))
+    return redirect(url_for('play'))
     
 
 
 @app.route('/up', methods= ['GET'])
 def up():
     game.go_top()
-    return redirect(url_for('/play'))
+    return redirect(url_for('play'))
     
 
 
 @app.route('/down', methods= ['GET'])
 def down():
     game.go_down()
-    return redirect(url_for('/play'))
+    return redirect(url_for('play'))
     
 
     
